@@ -12,11 +12,16 @@ jobs:
     docker:
       - image: circleci/openjdk:8-jdk
       - image: cimg/android:2023.02
+
+    environment:
+      ANDROID_TARGET: android-23
+      ADB_INSTALL_TIMEOUT: 12
+        - sudo ANDROID_HOME=/usr/local/android-sdk-linux ./gradlew dependencies
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - checkout
-        #- restore_cache:
+      #- restore_cache:
       #key: jars-{{ checksum "build.gradle" }}-{{ checksum "./build.gradle" }}
       - run:
           name: chmod permissions
@@ -30,7 +35,8 @@ jobs:
             - v1-dependencies-
 
       - run: gradle dependencies
-     
+
+
 
         # Build
       - run:
