@@ -30,14 +30,7 @@ jobs:
             - v1-dependencies-
 
       - run: gradle dependencies
-      - run:
-          environment:
-            ANDROID_SDK_ROOT: '/home/circleci/android-sdk'
-          name: Prepare environment and compile beta
-          no_output_timeout: 30m
-          command: ANDROID_SDK_ROOT='/home/circleci/android-sdk'
-
-          key: v1-dependencies-{{ checksum "build.gradle" }}
+     
 
         # Build
       - run:
