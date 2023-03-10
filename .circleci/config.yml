@@ -30,9 +30,9 @@ jobs:
       - run: ./gradlew clean assemble
 
       # run tests
-      #- run:
-        #name: run tests
-       # command: ./gradlew test
+      - run:
+        name: run tests
+        command: ./gradlew test
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
