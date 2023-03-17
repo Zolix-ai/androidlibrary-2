@@ -133,6 +133,15 @@ publishing {
             artifactPattern('[organisation]/[module]/[revision]/[artifact]-[revision](-[classifier]).[ext]')
         }
     }
+    repositories {
+        maven {
+            name = "Githubpackage"
+            url = url("https://maven.pkg.github.com/<S1Y333>/<androidlibrary>")
+            credentials {
+                username = System.getenv("S1Y333")
+                password = System.getenv("GITHUB_TOKEN")
+
+            }
 }
 
 
