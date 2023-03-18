@@ -34,16 +34,13 @@ jobs:
           name: run tests
           command: ./gradlew test
 
-      - run:
-          name: Authenticate with GitHub Packages
-          command: |
-            echo "//maven.pkg.github.com/<S1Y333>/<androidlibrary>/:username=${S1Y333}" >> ~/.gradle/gradle.properties
-            echo "//maven.pkg.github.com/<S1Y333>/<androidlibrary>/:password=${{ secrets.GITHUB_TOKEN }}" >> ~/.gradle/gradle.properties
 
       - run:
           name: Publish library to GitHub Packages
           command: |
             mvn --batch-mode deploy
+            env:
+              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Invoke jobs via workflows
       # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
