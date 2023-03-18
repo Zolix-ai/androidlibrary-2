@@ -22,7 +22,9 @@ jobs:
           name: Download Dependencies
           command: ./gradlew androidDependencies
 
-      #- run name: Install maven command: apt-get install maven
+      - run:
+          name: Install maven
+          command: sudo apt-get install maven
 
       - save_cache:
           paths:
