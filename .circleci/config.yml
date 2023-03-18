@@ -24,7 +24,7 @@ jobs:
 
       - run:
           name: Install maven
-          command: sudo apt-get install maven ../apache-maven-3.8.8/bin/mvn
+          command: sudo apt-get update && apt-get install maven
 
       - save_cache:
           paths:
