@@ -7,6 +7,9 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:4.2.2'
         classpath 'org.jfrog.buildinfo:build-info-extractor-gradle:4.23.4'
+
+        // Remote binary dependency
+        implementation 'net.schmizz:sshj:0.10.0'
     }
 }
 
