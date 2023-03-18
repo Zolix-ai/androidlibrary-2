@@ -24,7 +24,7 @@ jobs:
 
       - run:
           name: Install maven
-          command: apt-get install maven
+          command: brew install maven
 
       - save_cache:
           paths:
@@ -33,7 +33,7 @@ jobs:
 
       # Build
       - run: ./gradlew clean assemble
-   
+
 
       # run tests
       - run:
