@@ -34,15 +34,15 @@ jobs:
           name: run tests
           command: ./gradlew test
 
-      - run:
-          name: Authenticate with GitHub Packages
-          command: |
-            echo "//maven.pkg.github.com/<S1Y333>/<androidlibrary>/:username=${S1Y333}" >> ~/.gradle/gradle.properties
-            echo "//maven.pkg.github.com/<S1Y333>/<androidlibrary>/:password=${GITHUB_TOKEN}" >> ~/.gradle/gradle.properties
+      #- run:
+         # name: Authenticate with GitHub Packages
+        # command: |
+          #  echo "//maven.pkg.github.com/<S1Y333>/<androidlibrary>/:username=${S1Y333}" >> ~/.gradle/gradle.properties
+          #  echo "//maven.pkg.github.com/<S1Y333>/<androidlibrary>/:password=${GITHUB_TOKEN}" >> ~/.gradle/gradle.properties
 
-            - run:
-                name: Publish library to GitHub Packages
-                command: |
+       - run:
+           name: Publish library to GitHub Packages
+           command: |
                   mvn clean deploy
 
 # Invoke jobs via workflows
