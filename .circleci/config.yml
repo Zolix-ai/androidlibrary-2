@@ -8,7 +8,7 @@ jobs:
     working_directory: ~/code
     docker:
       - image: circleci/android:api-30
-      
+
 
     environment:
       JVM_OPTS: -Xmx3200m
@@ -41,7 +41,7 @@ jobs:
           name: run tests
           command: ./gradlew test
 
-
+      #run mvn
       - run:
           name: run mvn
           command: mvn deploy
