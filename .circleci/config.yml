@@ -7,6 +7,7 @@ jobs:
   build:
 
     docker:
+      # choose the right version, which include the maven, otherwise the mvn deploy will fail
       - image: cimg/android:2023.02
 
 
@@ -23,9 +24,6 @@ jobs:
           name: Download Dependencies
           command: ./gradlew androidDependencies
 
-      #- run:
-         # name: Install maven
-         # command: sudo apt-get update && sudo apt-get update && sudo apt-get install maven
 
       - save_cache:
           paths:
@@ -40,6 +38,12 @@ jobs:
       - run:
           name: run tests
           command: ./gradlew test
+
+      - run:
+          name: Authenticate with GitHub Packages
+          command: |
+            echo $GITHUB_TOKEN 
+            echo $GITHUB_USERNAME
 
       #run mvn
       - run:
